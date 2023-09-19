@@ -111,4 +111,7 @@ label{
 .row{
     display: flex;
 }
+.form-group{
+    margin: 5px;
+}
 
