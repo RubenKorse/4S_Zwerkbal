@@ -2,84 +2,62 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Team;
+use App\Models\Team; // Team-model in plaats van Tournament-model
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // ...
+
     public function index()
     {
-        throw new \Exception('Niet geïmplementeerd - lijst van teams kan nog niet getoond worden.');
+        $teams = Team::all(); // Alle teams ophalen in plaats van toernooien
+        return view('teams/index')
+            ->with('teams', $teams); // Geef teams door aan de view in plaats van toernooien
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('teams/create'); // Gebruik de create-weergave voor teams
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $team = new Team(); // Maak een nieuw team aan
+        $team->name = $request->name;
+        $team->type = $request->type;
+        $team->orgin = $request->orgin;
+        $team->save();
+
+        return redirect()->route('teams.index'); // Redirect naar de lijst met teams
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Team $team)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Team $team)
     {
-        //
+        return view('teams/edit')
+            ->with('team', $team); // Geef het team door aan de edit-weergave
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Team $team)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $team->name = $request->name;
+        $team->type = $request->type;
+        $team->orgin = $request->orgin;
+        $team->save();
+
+        return redirect()->route('teams.index'); // Redirect naar de lijst met teams
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Team $team)
     {
-        //
+        // Voeg logica toe om een team te verwijderen als dat nodig is
     }
 }
