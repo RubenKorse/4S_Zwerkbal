@@ -24,7 +24,9 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'type' => 'required',
+            'orgin' => 'required'
         ]);
 
         $team = new Team(); // Maak een nieuw team aan
@@ -45,7 +47,9 @@ class TeamController extends Controller
     public function update(Request $request, Team $team)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'type' => 'required',
+            'orgin' => 'required'
         ]);
 
         $team->name = $request->name;

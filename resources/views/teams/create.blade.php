@@ -10,6 +10,15 @@
 @endsection
 
 @section('content')
+
+@if($errors->any())
+    <ul class="errors">
+        @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </ul>
+@endif
+
     <h1>Nieuw team</h1>
 	<form action="{{ route('teams.store') }}" method="POST">
 		@csrf
