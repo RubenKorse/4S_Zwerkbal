@@ -25,7 +25,7 @@
                 <h1>5</h1>
             </div>
         </div>
-        <img src="img/snitch.png" alt="photo">
+        <img src="img/snitch.png" alt="photo" class="img">
     </div>
 
 @endsection
