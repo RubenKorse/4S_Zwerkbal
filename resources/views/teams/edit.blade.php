@@ -29,7 +29,12 @@
         </div>
         <div class="form-group">
 			<label for="name">Het soort team:</label>
-			<input type="text" id="type" name="type" class="form-control" value="{{ $team->type }}">
+            <select id="type" name="type" class="form-control">
+            <option value="{{ $team->type }}">{{ $team->type }}</option>
+                <option value="school">School</option>
+                <option value="country">Country</option>
+                <option value="commercial">Commercial</option>
+            </select>
 		</div>
         <div class="form-group">
 			<label for="name">De herkomst:</label>
