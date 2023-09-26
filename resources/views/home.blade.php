@@ -17,7 +17,7 @@
     <div class="row">
         <div class="yellowboder">
             <h1>{{ $tournaments->name }}</h1>
-            <p>{{ $tournaments->date }} vanaf {{ $tournaments->start_time }}</p>
+            <p>{{ \Carbon\Carbon::parse($tournaments->date)->format('d/m/Y')}} vanaf {{ $tournaments->start_time }}</p>
         </div>
         <img src="img/snitch.png" alt="photo" class="img">
     </div>
