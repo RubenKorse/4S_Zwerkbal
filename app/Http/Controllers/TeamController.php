@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team; // Team-model in plaats van Tournament-model
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller

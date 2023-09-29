@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Tournament;
+use App\Models\Team;
+use App\Models\user;
 
 class DatabaseSeeder extends Seeder
 {
